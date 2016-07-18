@@ -1,0 +1,14 @@
+require(clojure.test/run-tests 'bob-test)
+(clojure.test/run-tests 'bob-test)
+lein test bo-test
+lein test bob-test
+lein test
+(require 'bob-test'
+)
+(require 'bob-test')
+(require 'test/bob-test')
+(require '../test/bob-test')
+(require 'bob-test')
+#'clojure.test/run-tests
+(require 'bob-test)
+exit
