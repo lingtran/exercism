@@ -1,0 +1,7 @@
+exit
+hello
+defn hello
+exit
+(require 'hello-world')
+(require 'hello-world)
+exit
