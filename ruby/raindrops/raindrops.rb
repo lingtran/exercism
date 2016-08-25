@@ -6,26 +6,22 @@ class Raindrops
                   }
 
   def self.convert(number)
-    result = check_for_prime_factors(number)
-    format_result(number, result)
+    @result = []
+    @number = number
+    check_for_prime_factors
+    format_result
   end
 
-  def self.check_for_prime_factors(number)
-    result = []
-    PRIME_FACTORS.each_pair { |prime, output| result.push(output) if is_divisible_by(number, prime) }       
-    return result
+  def self.check_for_prime_factors
+    PRIME_FACTORS.each_pair { |prime, output| @result.push(output) if is_divisible_by(prime) }
   end
 
-  def self.is_divisible_by(number, prime)
-    (number % prime.to_i) == 0
+  def self.is_divisible_by(prime)
+    (@number % prime.to_i) == 0
   end
 
-  def self.format_result(number, result)
-    if result.empty?
-      return number.to_s
-    else
-      return result.join
-    end
+  def self.format_result
+    @result.empty? ? @number.to_s : @result.join
   end
 end
 
