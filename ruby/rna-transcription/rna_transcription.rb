@@ -1,8 +1,8 @@
 class Complement
   COMPLEMENT_KEY = { 'G': 'C',
-                      'C': 'G',
-                      'T': 'A',
-                      'A': 'U'
+                     'C': 'G',
+                     'T': 'A',
+                     'A': 'U'
                     }
 
   def self.of_dna(vars)
