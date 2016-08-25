@@ -1,8 +1,8 @@
 class Gigasecond
-  def self.from(time)
-    # convert time to seconds
-    # convert seconds time to date
+  GIGASECOND = 10**9
 
+  def self.from(start_date)
+    return (start_date.to_time + GIGASECOND).utc
   end
 end
 
