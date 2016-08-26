@@ -2,7 +2,7 @@ class Squares
   attr_reader :collection
 
   def initialize(number)
-      @collection = (0..number).to_a
+    @collection = (0..number).to_a
   end
 
   def square_of_sum
@@ -19,5 +19,5 @@ class Squares
 end
 
 module BookKeeping
-  VERSION = 3
+  VERSION = 4
 end
