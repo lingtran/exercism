@@ -1,11 +1,11 @@
 class Gigasecond
   GIGASECOND = 10**9
 
-  def self.from(start_date)
-    start_date + GIGASECOND
+  def self.from(initial_date)
+    initial_date + GIGASECOND
   end
 end
 
 module BookKeeping
-  VERSION = 4
+  VERSION = 5
 end
