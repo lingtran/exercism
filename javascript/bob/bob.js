@@ -7,7 +7,7 @@ var Bob = function() {
   this.responseToSilence  = "Fine. Be that way!";
   this.responseToYelling  = "Whoa, chill out!";
   this.responseToQuestion = "Sure.";
-  this.responseInGeneral   = "Whatever.";
+  this.responseInGeneral  = "Whatever.";
 
 };
 
