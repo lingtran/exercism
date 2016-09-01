@@ -11,6 +11,7 @@ class Fixnum
                                     1000 => 'M'
                                   }
   def to_roman
-     self
+    #  consider length
+    #  system for conversion
   end
 end
