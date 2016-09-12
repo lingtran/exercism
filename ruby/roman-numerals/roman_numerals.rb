@@ -11,7 +11,6 @@ class Fixnum
                                     1000 => 'M'
                                   }
   def to_roman
-    #  consider length
-    #  system for conversion
+    ARABIC_TO_ROMAN_NUMERALS_KEY[1] * self
   end
 end
