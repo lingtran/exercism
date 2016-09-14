@@ -28,11 +28,11 @@ class Fixnum
       else
         next
       end
-    end.join
+    end.reverse.join
   end
 
   def get_digits(input)
-    input.to_s.chars.map(&:to_i)
+    input.to_s.chars.map(&:to_i).reverse
   end
 
   def apply_addition_rule_with_one(index, magnitude)
@@ -46,4 +46,8 @@ class Fixnum
   def apply_subtraction_rule(num, index)
     ARABIC_TO_ROMAN_NUMERALS_KEY[num * (10 ** index)]
   end
+end
+
+module BookKeeping
+  VERSION = 2
 end
