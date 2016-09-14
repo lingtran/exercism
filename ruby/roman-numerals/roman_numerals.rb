@@ -18,16 +18,7 @@ class Fixnum
 
   def to_roman
     get_digits(self).map.with_index do |num, index|
-      case
-      when num == 4 || num == 9
-        apply_subtraction_rule(num, index)
-      when (1..3).include?(num)
-        apply_addition_rule_with_one(index, num)
-      when (5...10).include?(num)
-        apply_addition_rule_with_five(index) + apply_addition_rule_with_one(index, num%5)
-      else
-        next
-      end
+      apply_rule(num, index)
     end.reverse.join
   end
 
@@ -35,16 +26,31 @@ class Fixnum
     input.to_s.chars.map(&:to_i).reverse
   end
 
+  def apply_rule(num, index)
+    case
+    when num == 4 || num == 9
+      apply_subtraction_rule(num, index)
+    when (1..3).include?(num)
+      apply_addition_rule_with_one(index, num)
+    when (5...10).include?(num)
+      apply_addition_rule_with_five(index) + apply_addition_rule_with_one(index, num%5)
+    end
+  end
+
   def apply_addition_rule_with_one(index, magnitude)
-    ARABIC_TO_ROMAN_NUMERALS_KEY[1 * (10 ** index)] * magnitude
+    ARABIC_TO_ROMAN_NUMERALS_KEY[1 * ten_raised_to(index)] * magnitude
   end
 
   def apply_addition_rule_with_five(index)
-    ARABIC_TO_ROMAN_NUMERALS_KEY[5 * (10 ** index)]
+    ARABIC_TO_ROMAN_NUMERALS_KEY[5 * ten_raised_to(index)]
   end
 
   def apply_subtraction_rule(num, index)
-    ARABIC_TO_ROMAN_NUMERALS_KEY[num * (10 ** index)]
+    ARABIC_TO_ROMAN_NUMERALS_KEY[num * ten_raised_to(index)]
+  end
+
+  def ten_raised_to(index)
+    10 ** index
   end
 end
 
