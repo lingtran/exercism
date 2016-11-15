@@ -1,5 +1,3 @@
-require 'pry'
-
 class Robot
   attr_reader :name
 
