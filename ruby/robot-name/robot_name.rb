@@ -1,30 +1,27 @@
 require 'pry'
 
 class Robot
-  LETTERS = ("A".."Z").to_a
-
-  attr_reader :name, :letters
+  attr_reader :name
 
   def initialize
-    @name = generate_name
+    @name = NameGenerator.get_name
   end
 
   def reset
     initialize
   end
+end
 
-  def modify_letters_when(letter)
-    LETTERS.delete(letter)
+class NameGenerator
+  ALPHABET = Array("A".."Z")
+
+  def self.get_letter
+    ALPHABET.shuffle!.pop
   end
 
-  def get_letter
-    LETTERS.sample
+  def self.get_name
+    "%s%s%03d" % [get_letter, get_letter, rand(999)]
   end
-
-  def generate_name
-    "%s%s%03d" % [modify_letters_when(get_letter), modify_letters_when(get_letter), rand(999)]
-  end
-
 end
 
 class BookKeeping
