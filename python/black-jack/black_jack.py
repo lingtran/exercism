@@ -29,10 +29,9 @@ def value_of_card(card):
 
     if card in FACE_CARDS:
         return 10
-    elif card == 'A':
+    if card == 'A':
         return 1
-    else:
-        return CARD_VALUES[card]
+    return CARD_VALUES[card]
 
 
 def higher_card(card_one, card_two):
@@ -48,10 +47,9 @@ def higher_card(card_one, card_two):
 
     if value_of_card(card_one) == value_of_card(card_two):
         return card_one, card_two
-    elif value_of_card(card_one) > value_of_card(card_two):
+    if value_of_card(card_one) > value_of_card(card_two):
         return card_one
-    else:
-        return card_two
+    return card_two
 
 
 def value_of_ace(card_one, card_two):
@@ -66,10 +64,9 @@ def value_of_ace(card_one, card_two):
     """
     if 'A' in (card_one, card_two):
         return 1
-    elif (value_of_card(card_one) + value_of_card(card_two)) >= 11:
+    if (value_of_card(card_one) + value_of_card(card_two)) >= 11:
         return 1
-    else:
-        return 11
+    return 11
 
 
 def is_blackjack(card_one, card_two):
@@ -88,8 +85,7 @@ def is_blackjack(card_one, card_two):
 
     if 'A' in {card_one, card_two}:
         return card_one in ten_card or card_two in ten_card
-    else:
-        return False
+    return False
     
 
 def can_split_pairs(card_one, card_two):
@@ -101,8 +97,7 @@ def can_split_pairs(card_one, card_two):
     
     if card_one == card_two:
         return True
-    else:
-        return len({card_one, card_two}.difference({'Q', 'K'})) == 0
+    return len({card_one, card_two}.difference({'Q', 'K'})) == 0
 
 
 def can_double_down(card_one, card_two):
@@ -117,4 +112,4 @@ def can_double_down(card_one, card_two):
     value_one = value_of_card(card_one)
     value_two = value_of_card(card_two)
 
-    return (value_one + value_two) in possible_double_down_totals
+    return value_one + value_two in possible_double_down_totals
